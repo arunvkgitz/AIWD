@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 10: AI Tools Simulation</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: #f0f2f5; margin: 0; }
+        .container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; max-width: 400px; width: 90%; }
+        h1 { color: #1a73e8; margin-bottom: 20px; }
+        textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; margin-bottom: 20px; resize: none; box-sizing: border-box; }
+        button { background-color: #1a73e8; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 16px; cursor: pointer; transition: background 0.3s; }
+        button:hover { background-color: #1557b0; }
+        .status { margin-top: 15px; font-size: 14px; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Voice Assistant</h1>
+        <p>Type something and let the "AI" speak it out.</p>
+        <textarea id="text-input" rows="4" placeholder="Hello, I am your AI assistant..."></textarea>
+        <br>
+        <button id="speak-btn">Speak Text</button>
+        <div class="status" id="status">Ready</div>
+    </div>
+
+    <script>
+        const speakBtn = document.getElementById('speak-btn');
+        const textInput = document.getElementById('text-input');
+        const status = document.getElementById('status');
+
+        speakBtn.addEventListener('click', () => {
+            const text = textInput.value.trim();
+            if (!text) {
+                alert('Please enter some text!');
+                return;
+            }
+
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                
+                utterance.onstart = () => {
+                    status.textContent = 'AI is speaking...';
+                    speakBtn.disabled = true;
+                };
+                
+                utterance.onend = () => {
+                    status.textContent = 'Ready';
+                    speakBtn.disabled = false;
+                };
+
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert('Sorry, your browser does not support text-to-speech.');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Flexbox section */
+.grid-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.box {
+    padding: 20px;
+    background: #007bff;
+    color: white;
+    border-radius: 4px;
+    transition: transform 0.3s;
+}
+
+.box:hover {
+    transform: scale(1.1);
+}
+
+/* Animation section */
+.animation-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.animated-box {
+    width: 150px;
+    height: 150px;
+    background: #28a745;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+    cursor: pointer;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+}
+
+/* CSS Grid section */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.grid-item {
+    background: #343a40;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    border-radius: 8px;
+}

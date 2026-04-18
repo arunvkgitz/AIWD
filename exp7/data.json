@@ -1,0 +1,11 @@
+{
+    "users": [
+        {"id": 1, "name": "Alice", "role": "Admin", "email": "alice@example.com"},
+        {"id": 2, "name": "Bob", "role": "User", "email": "bob@example.com"},
+        {"id": 3, "name": "Charlie", "role": "User", "email": "charlie@example.com"}
+    ],
+    "posts": [
+        {"id": 101, "userId": 1, "title": "NoSQL vs SQL", "content": "NoSQL databases are schema-less..."},
+        {"id": 102, "userId": 2, "title": "JSON Basics", "content": "JSON is a lightweight data-interchange format."}
+    ]
+}
